@@ -1,0 +1,89 @@
+<div class="min-h-screen bg-gray-100 p-4 font-sans text-gray-800 flex flex-col items-center">
+
+  <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 mb-6">
+    <h1 class="text-3xl font-bold text-center text-indigo-600 mb-6">Time's Up!</h1>
+
+    <div class="mb-6">
+      <div class="flex justify-between items-center mb-3">
+        <label class="block text-sm font-semibold text-gray-600">Válassz témákat:</label>
+
+        <button (click)="selectAllThemes()" class="text-sm font-bold text-indigo-600 hover:text-indigo-800 transition-colors">
+          {{ selectedThemes.length === themes.length ? 'Összes törlése' : 'Jöhet minden!' +
+          '' }}
+        </button>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        <button *ngFor="let theme of themes"
+                (click)="toggleTheme(theme)"
+                [class.bg-indigo-600]="selectedThemes.includes(theme)"
+                [class.text-white]="selectedThemes.includes(theme)"
+                [class.bg-gray-200]="!selectedThemes.includes(theme)"
+                [class.text-gray-700]="!selectedThemes.includes(theme)"
+                class="px-4 py-2 rounded-full text-sm font-bold transition-colors">
+          {{ theme }}
+        </button>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <label class="block text-sm font-semibold text-gray-600 mb-2">Csapatok száma:</label>
+      <div class="flex gap-2">
+        <button *ngFor="let count of [2,3,4]"
+                (click)="teamCount = count"
+                [class.bg-indigo-600]="teamCount === count"
+                [class.text-white]="teamCount === count"
+                [class.bg-gray-200]="teamCount !== count"
+                class="flex-1 py-2 rounded-lg font-bold transition-colors">
+          {{ count }} Csapat
+        </button>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <label class="block text-sm font-semibold text-gray-600 mb-2">Új játékos:</label>
+      <div class="flex gap-2">
+        <input [(ngModel)]="newPlayerName"
+               (keyup.enter)="addPlayer()"
+               type="text"
+               placeholder="Játékos neve..."
+               class="flex-1 bg-gray-50 border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-indigo-500">
+        <button (click)="addPlayer()"
+                class="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg font-bold hover:bg-indigo-200">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="players.length > 0" class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 mb-24">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold">Játékosok ({{players.length}})</h2>
+      <button (click)="randomizeTeams()" class="text-sm bg-gray-800 text-white px-3 py-1 rounded-md hover:bg-gray-700">
+        Sorsolás
+      </button>
+    </div>
+
+    <ul class="space-y-3">
+      <li *ngFor="let player of players; let i = index"
+          class="flex items-center justify-between bg-gray-50 p-3 rounded-lg border border-gray-100">
+        <span class="font-medium truncate w-1/3">{{ player.name }}</span>
+
+        <select [(ngModel)]="player.teamId"
+                class="bg-white border border-gray-300 rounded text-sm p-1 ml-2 outline-none">
+          <option *ngFor="let opt of teamOptions" [value]="opt">{{opt}}. Csapat</option>
+        </select>
+
+        <button (click)="removePlayer(i)" class="text-red-500 font-bold ml-2 p-2">X</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="fixed bottom-0 left-0 w-full p-4 bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex justify-center">
+    <button (click)="startGame()"
+            class="w-full max-w-md bg-green-500 hover:bg-green-600 text-white font-bold text-xl py-4 rounded-xl shadow-lg transition-transform transform active:scale-95">
+      JÁTÉK INDÍTÁSA
+    </button>
+  </div>
+
+</div>
