@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {Router} from '@angular/router';
+import {GameState} from '../game-state';
 
 @Component({
   selector: 'app-game',
@@ -8,15 +10,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './game.html'
 })
 export class GameComponent {
-  currentPhase = 1;
-  phaseTitle = 'Szabad körülírás';
-  phaseDescription = 'Írd körül a kártyán lévő szót annyi mondattal, amennyivel csak akarod! A szótagokat és a szó tövét nem használhatod. Passzolás nincs!';
+  private router = inject(Router)
+  private gameState = inject(GameState)
+  currentPhase = this.gameState.currentPhase;
+  phaseTitle = this.gameState.getPhaseTitle();
+  phaseDescription = this.gameState.getPhaseDesc();
 
-  currentPlayer = 'Péter';
-  currentTeam = '1. Csapat';
-
+  currentTeam = this.gameState.currentTeamIndex+1 + '. Csapat';
+  currentPlayerIndex:number = this.gameState.teams[this.gameState.currentTeamIndex].currentPlayerIndex;
+  currentPlayer:string = this.gameState.teams[this.gameState.currentTeamIndex].players[this.currentPlayerIndex];
   startTimer() {
-    console.log('Stopper elindítva, jöhet a kártyahúzás!');
-   // Itt navigálunk majd át a konkrét kártyamutató / 40 másodperces képernyőre
+      this.router.navigate(['/play']);
   }
 }

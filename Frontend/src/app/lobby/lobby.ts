@@ -2,24 +2,49 @@ import {Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {Router} from '@angular/router';
+import {GameState} from '../game-state';
 
 interface Player {
   name: string;
   teamId: number;
 }
+interface Team {
+  teamId: number;
+  players: string[];
+  teamScore: number;
+  currentPlayerIndex: number;
+}
+
 
 @Component({
   selector: 'app-lobby',
   standalone: true,
-  imports: [CommonModule, FormsModule], // A FormsModule kell az inputok kezeléséhez
+  imports: [CommonModule, FormsModule],
   templateUrl: './lobby.html',
 })
 export class LobbyComponent {
   private router = inject(Router)
-
-  themes = ['Általános', 'Filmek', 'Hírességek', 'Felnőtt (18+)'];
+  private gameState = inject(GameState)
+  themes = ['Általános', 'Filmek', 'TV Műsorok', 'Társasjátékok', 'Színészek', 'Hírességek', 'Videójátékok', 'Foglalkozások', 'Mesék és Gyerekműsorok', 'IT kifejezések', 'Történelmi események', 'Felnőtt(18+)'];
   selectedThemes: string[] = ['Általános']; // Kezdetben egy téma van kiválasztva
+  teams : Team[] = [];
 
+
+  hasSavedGame = false;
+
+  ngOnInit() {
+    this.hasSavedGame = this.gameState.hasSavedGame();
+  }
+
+  resumeGame() {
+    this.gameState.loadState();
+    this.router.navigate(['/game']);
+  }
+
+  deleteSave() {
+    this.gameState.clearSavedState();
+    this.hasSavedGame = false;
+  }
 
   toggleTheme(theme: string) {
     if (this.selectedThemes.includes(theme)) {
@@ -30,10 +55,11 @@ export class LobbyComponent {
   }
 
   selectAllThemes() {
-    if (this.selectedThemes.length === this.themes.length) {
+    if (this.selectedThemes.length === this.themes.length-1) {
       this.selectedThemes = [];
     } else {
-      this.selectedThemes = [...this.themes];
+      this.selectedThemes = [...this.themes]
+      this.toggleTheme("Felnőtt(18+)");
     }
   }
 
@@ -67,17 +93,38 @@ export class LobbyComponent {
     this.players = shuffled;
   }
 
-  startGame() {
-    if (this.players.length < 2) {
-      alert('Legalább 2 játékosra van szükség!');
-      return;
+  async startGame() {
+    this.teams = [];
+    for (const player of this.players) {
+      let newteam = true;
+      for (const team of this.teams) {
+        if(team.teamId == player.teamId){
+          team.players.push(player.name);
+          newteam = false;
+        }
+      }
+      if (newteam){
+        this.teams.push({
+          teamId : player.teamId,
+          teamScore : 0,
+          players : [player.name],
+          currentPlayerIndex : 0
+        })
+      }
     }
+    for (let i = 0; i < this.teamCount; i++) {
+      if (this.teams[i].players.length<2){
+        alert('Legalább 2 játékosra van szükség minden csapatban!');
+        return;
+      }
+    }
+
     console.log('Játék indítása a következő adatokkal:', {
       theme: this.selectedThemes,
       teams: this.teamCount,
       players: this.players
     });
-
+    await this.gameState.initGame( this.teams, this.selectedThemes);
     this.router.navigate(['/game']);
   }
 }

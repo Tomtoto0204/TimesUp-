@@ -1,5 +1,6 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
+.idea/
+*.iml
 # Compiled output
 /dist
 /tmp
@@ -12,7 +13,6 @@ npm-debug.log
 yarn-error.log
 
 # IDEs and editors
-.idea/
 .project
 .classpath
 .c9/
