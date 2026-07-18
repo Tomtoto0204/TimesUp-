@@ -55,7 +55,7 @@ export class LobbyComponent {
   }
 
   selectAllThemes() {
-    if (this.selectedThemes.length === this.themes.length-1) {
+    if (this.selectedThemes.length >= this.themes.length-1) {
       this.selectedThemes = [];
     } else {
       this.selectedThemes = [...this.themes]
@@ -94,6 +94,10 @@ export class LobbyComponent {
   }
 
   async startGame() {
+    if (this.selectedThemes.length<1){
+      alert('Nincs kiválasztott téma!');
+      return
+    }
     this.teams = [];
     for (const player of this.players) {
       let newteam = true;

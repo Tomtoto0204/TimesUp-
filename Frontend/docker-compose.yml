@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  times-up:
+    image: times-up:latest
+    container_name: times-up-frontend
+    build: .
+    ports:
+      - "9000:80"
+    restart: unless-stopped
