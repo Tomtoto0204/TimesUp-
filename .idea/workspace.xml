@@ -4,14 +4,74 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff365f52-3202-47b8-9a5c-7250cbe5b65b" name="Changes" comment="" />
+    <list default="true" id="ff365f52-3202-47b8-9a5c-7250cbe5b65b" name="Changes" comment="Folder cleaning done, hope it works [TESTED]">
+      <change afterPath="$PROJECT_DIR$/../Szakdoga/szakdoga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ngsw-config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/icon-128x128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/icon-144x144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/icon-152x152.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/icon-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/icon-384x384.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/icon-512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/icon-72x72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/icon-96x96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/manifest.webmanifest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/words.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-state.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-state.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game/game.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game/game.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game/game.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game/game.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/leaderboard/leaderboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/leaderboard/leaderboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/leaderboard/leaderboard.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/leaderboard/leaderboard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/lobby/lobby.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/lobby/lobby.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/lobby/lobby.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/lobby/lobby.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/play/play.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/play/play.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/play/play.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/play/play.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/summary/summary.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/summary/summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/summary/summary.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/summary/summary.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -24,23 +84,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Tomi/source/repos/TimesUp-/Frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Angular CLI Server.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Tomi\\source\\repos\\TimesUp-\\Frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Tomi/source/repos/TimesUp-/Frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "npm.Angular CLI Server.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\Tomi\\source\\repos\\TimesUp-\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tomi\source\repos\TimesUp-\Frontend\public" />
@@ -72,6 +132,7 @@
       <workItem from="1784052869161" duration="23996000" />
       <workItem from="1784236190825" duration="1309000" />
       <workItem from="1784267831941" duration="7477000" />
+      <workItem from="1784372284885" duration="776000" />
     </task>
     <task id="LOCAL-00001" summary="Project created.&#10;Lobby create page created.&#10;waiting stage created.">
       <option name="closed" value="true" />
@@ -137,7 +198,23 @@
       <option name="project" value="LOCAL" />
       <updated>1784371637827</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Folder cleaning done, hope it works">
+      <option name="closed" value="true" />
+      <created>1784372343834</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1784372343834</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Folder cleaning done, hope it works [TESTED]">
+      <option name="closed" value="true" />
+      <created>1784373036754</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1784373036754</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +239,8 @@
     <MESSAGE value="#1 issue done, deleted 17 duplicates.&#10;#2 issue done, difficulty selector and cant pass if it is on hard" />
     <MESSAGE value="#3 issue done. Shuffle a nextplayer hívásban jön." />
     <MESSAGE value="gitignore update" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore update" />
+    <MESSAGE value="Folder cleaning done, hope it works" />
+    <MESSAGE value="Folder cleaning done, hope it works [TESTED]" />
+    <option name="LAST_COMMIT_MESSAGE" value="Folder cleaning done, hope it works [TESTED]" />
   </component>
 </project>
