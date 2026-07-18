@@ -29,16 +29,24 @@ export class GameState {
   router:Router = inject(Router)
   words: string[] = [];
   remainingWords = this.words;
-  timeLeft = 40;
+  timeLeft:number = 60;
   teams : Team[] = []
   currentTeamIndex = 0;
   currentPhase = 1;
   currentScore = 0;
+  difficulty:string = "easy";
   private isFinished: boolean = false;
 
-  async initGame(teams: Team[], themes:string[], ) {
+  async initGame(teams: Team[], themes:string[], difficulty:string) {
     this.teams = teams;
     let masterDeck: string[] = [];
+    if (difficulty == "easy"){
+      this.difficulty = "easy";
+      this.timeLeft = 60;
+    }else{
+      this.timeLeft = 40;
+      this.difficulty = "hard";
+    }
 
     try {
       const data = await firstValueFrom(this.http.get<WordsData>('/words.json'));
@@ -111,9 +119,8 @@ export class GameState {
     this.saveState()
   }
   isGameFinished(){
-    if (this.isFinished && this.remainingWords.length == 0)
-      return true;
-    return false;
+    return this.isFinished && this.remainingWords.length == 0;
+
   }
   resetGame(){
     this.remainingWords = this.words;

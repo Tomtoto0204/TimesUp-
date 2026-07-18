@@ -7,9 +7,7 @@
     "utca", "tér", "híd", "alagút", "repülőtér", "vasútállomás", "kikötő", "kórház", "iskola", "étterem",
     "kutya", "macska", "ló", "tehén", "disznó", "juh", "kecske", "tyúk", "kacsa", "liba",
     "sas", "medve", "farkas", "róka", "oroszlán", "tigris", "elefánt", "zsiráf", "majom", "krokodil",
-    "orvos", "ápoló", "tanár", "mérnök", "építész", "asztalos", "fodrász", "szakács", "pincér", "rendőr",
-    "tűzoltó", "katona", "pilóta", "sofőr", "színész", "énekes", "író", "festő", "zenész", "sportoló",
-    "fa", "virág", "fű", "bokor", "erdő", "hegy", "völgy", "folyó", "tó", "tenger",
+    "ápoló", "mérnök", "katona","sportoló", "fa", "virág", "fű", "bokor", "erdő", "hegy", "völgy", "folyó", "tó", "tenger",
     "óceán", "sziget", "sivatag", "ég", "felhő", "nap", "hold", "csillag", "eső", "hó",
     "szél", "alma", "körte", "barack", "szilva", "szőlő", "dinnye", "eper", "málna", "narancs",
     "fej", "kéz", "láb", "szem", "fül", "orr", "száj", "haj", "nyak", "hát",
@@ -27,7 +25,7 @@
     "X-Men", "Micsoda nő!", "Dirty Dancing", "Grease", "Reszkessetek, betörők!",
     "Igazából szerelem", "A Grincs", "Charlie és a csokigyár", "A szépség és a szörnyeteg", "Aladdin",
     "Mulan", "Tarzan", "Némó nyomában", "Fel!", "Agymanók",
-    "Szörny Rt.", "L'ecsó", "A hihetetlen család", "Wall-E", "Jégvarázs",
+    "Szörny Rt.", "L'ecsó", "A hihetetlen család", "Wall-E",
     "A kis hableány", "A dzsungel könyve", "101 kiskutya", "Hófehérke és a hét törpe", "Pán Péter",
     "A bárányok hallgatnak", "Hetedik", "Hatodik érzék", "Ragyogás", "Psycho",
     "Alien", "Ragadozó", "Drágán add az életed!", "Halálos fegyver", "Szellemirtók",
@@ -45,7 +43,7 @@
     "A Fal", "Maradj talpon!", "A Dal", "Cápák között", "Dancing with the Stars",
     "Szombat Esti Láz", "Házasodna a gazda", "A Nagy Duett", "Sztárbox", "Gyertek át!",
     "Éden Hotel", "Mónika show", "Balázs show", "Győzike show", "Esti Showder",
-    "Showder Klub", "Beugró", "Activity", "Játék határok nélkül", "Honfoglaló",
+    "Showder Klub", "Beugró", "Játék határok nélkül", "Honfoglaló",
     "Párharc", "Az Árulók", "Kincsvadászok", "Fókusz", "Sztár Séf"
   ],
   "Társasjátékok": [

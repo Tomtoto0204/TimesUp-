@@ -19,6 +19,7 @@ export class GameComponent {
   currentTeam = this.gameState.currentTeamIndex+1 + '. Csapat';
   currentPlayerIndex:number = this.gameState.teams[this.gameState.currentTeamIndex].currentPlayerIndex;
   currentPlayer:string = this.gameState.teams[this.gameState.currentTeamIndex].players[this.currentPlayerIndex];
+  remainingWordsCount = this.gameState.remainingWords.length;
   startTimer() {
       this.router.navigate(['/play']);
   }

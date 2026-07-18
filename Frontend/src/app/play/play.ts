@@ -85,6 +85,7 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   handlePass() {
+    if (this.gamestate.currentPhase === 1 && this.gamestate.difficulty === "hard") return;
     if (this.isAnimating) return;
     this.nextWord('left');
   }
@@ -92,7 +93,6 @@ export class PlayComponent implements OnInit, OnDestroy {
   nextWord(direction: 'left' | 'right') {
     this.isAnimating = true;
 
-    // Kirepülési animáció indítása a megfelelő irányba
     this.cardTransform = direction === 'right'
       ? 'translateX(150%) rotate(20deg)'
       : 'translateX(-150%) rotate(-20deg)';
@@ -114,7 +114,6 @@ export class PlayComponent implements OnInit, OnDestroy {
     clearInterval(this.timer);
     this.gamestate.currentScore = this.score;
     this.gamestate.remainingWords = this.remainingWords.filter(word => !this.guessedWords.includes(word));
-    alert(`A kör véget ért! Megszerzett pontok: ${this.gamestate.currentScore}`);
     if (this.gamestate.remainingWords.length == 0)
       this.gamestate.nextPhase();
 

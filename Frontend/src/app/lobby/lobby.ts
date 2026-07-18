@@ -28,6 +28,7 @@ export class LobbyComponent {
   themes = ['Általános', 'Filmek', 'TV Műsorok', 'Társasjátékok', 'Színészek', 'Hírességek', 'Videójátékok', 'Foglalkozások', 'Mesék és Gyerekműsorok', 'IT kifejezések', 'Történelmi események', 'Felnőtt(18+)'];
   selectedThemes: string[] = ['Általános']; // Kezdetben egy téma van kiválasztva
   teams : Team[] = [];
+  difficulty: string = "easy";
 
 
   hasSavedGame = false;
@@ -128,7 +129,7 @@ export class LobbyComponent {
       teams: this.teamCount,
       players: this.players
     });
-    await this.gameState.initGame( this.teams, this.selectedThemes);
+    await this.gameState.initGame( this.teams, this.selectedThemes, this.difficulty);
     this.router.navigate(['/game']);
   }
 }

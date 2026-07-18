@@ -21,6 +21,7 @@
         </button>
       </div>
     </div>
+
     <div class="mb-6">
       <div class="flex justify-between items-center mb-3">
         <label class="block text-sm font-semibold text-gray-600">Válassz témákat:</label>
@@ -53,6 +54,27 @@
                 [class.bg-gray-200]="teamCount !== count"
                 class="flex-1 py-2 rounded-lg font-bold transition-colors">
           {{ count }} Csapat
+        </button>
+      </div>
+    </div>
+
+    <!-- ÚJ: Nehézségi szint választó -->
+    <div class="mb-6">
+      <label class="block text-sm font-semibold text-gray-600 mb-2">Nehézségi szint:</label>
+      <div class="flex gap-2">
+        <button (click)="difficulty = 'easy'"
+                [class.bg-indigo-600]="difficulty === 'easy'"
+                [class.text-white]="difficulty === 'easy'"
+                [class.bg-gray-200]="difficulty !== 'easy'"
+                class="flex-1 py-2 rounded-lg font-bold transition-colors">
+          Könnyű
+        </button>
+        <button (click)="difficulty = 'hard'"
+                [class.bg-indigo-600]="difficulty === 'hard'"
+                [class.text-white]="difficulty === 'hard'"
+                [class.bg-gray-200]="difficulty !== 'hard'"
+                class="flex-1 py-2 rounded-lg font-bold transition-colors">
+          Nehéz
         </button>
       </div>
     </div>
