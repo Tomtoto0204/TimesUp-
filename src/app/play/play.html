@@ -1,0 +1,42 @@
+<div class="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-between p-6 overflow-hidden touch-none">
+
+  <div class="w-full max-w-md flex justify-between items-center mt-4">
+    <div class="bg-red-500 text-white font-black text-3xl px-5 py-2 rounded-2xl shadow-[0_4px_0_rgb(185,28,28)]">
+      00:{{ timeLeft < 10 ? '0' + timeLeft : timeLeft }}
+    </div>
+    <div class="bg-gray-800 text-green-400 font-bold text-2xl px-5 py-2 rounded-2xl border-2 border-gray-700 shadow-lg">
+      ✓ {{ score }}
+    </div>
+  </div>
+
+  <div class="flex-1 w-full max-w-md flex items-center justify-center relative my-8"
+       (touchstart)="onTouchStart($event)"
+       (touchmove)="onTouchMove($event)"
+       (touchend)="onTouchEnd()">
+
+    <div [style.transform]="cardTransform"
+         class="w-full aspect-[3/4] bg-white rounded-3xl shadow-2xl flex items-center justify-center p-8 transition-transform duration-300 ease-out select-none"
+         [class.opacity-0]="currentWordIndex >= remainingWords.length">
+      <h1 class="text-4xl md:text-6xl font-black text-gray-900 text-center break-words pointer-events-none">
+        {{ currentWord }}
+      </h1>
+    </div>
+
+    <div class="absolute bottom-[-30px] w-full flex justify-between px-4 text-gray-400 text-sm font-bold uppercase pointer-events-none">
+      <span>← Passz</span>
+      <span>Talált →</span>
+    </div>
+  </div>
+
+  <div class="w-full max-w-md flex justify-between gap-4 mb-4">
+    <button (click)="handlePass()"
+            class="flex-1 bg-gray-200 hover:bg-gray-300 text-red-600 font-black text-xl py-6 rounded-2xl shadow-[0_6px_0_rgb(156,163,175)] active:shadow-[0_0px_0_rgb(156,163,175)] active:translate-y-1 transition-all">
+      PASSZ ❌
+    </button>
+    <button (click)="handleCorrect()"
+            class="flex-1 bg-green-500 hover:bg-green-600 text-white font-black text-xl py-6 rounded-2xl shadow-[0_6px_0_rgb(22,163,74)] active:shadow-[0_0px_0_rgb(22,163,74)] active:translate-y-1 transition-all">
+      TALÁLT ✅
+    </button>
+  </div>
+
+</div>
