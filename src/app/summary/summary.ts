@@ -15,17 +15,29 @@ export class SummaryComponent {
   teamName = this.gameState.currentTeamIndex + 1 + ". Csapat";
   roundPoints = this.gameState.currentScore;
   previousTotal = this.gameState.teams[this.gameState.currentTeamIndex].teamScore;
+  rightwords:string[] = []
+
 
   get newTotal() {
     return this.previousTotal + this.roundPoints;
   }
 
   nextTurn() {
+    for (const asd of this.gameState.currentWords) {
+      if (asd.isCorrect){
+        this.rightwords.push(asd.text)
+      }
+    }
+    this.gameState.endRoundErands(this.rightwords, this.roundPoints)
     this.gameState.nextPlayer();
     if (this.gameState.isGameFinished()) {
       this.router.navigate(['/leaderboard']);
       return
     }
     this.router.navigate(['/game']);
+  }
+
+  edit() {
+    this.router.navigate(['/edit']);
   }
 }

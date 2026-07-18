@@ -17,12 +17,13 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   remainingWords = this.gamestate.remainingWords;
   guessedWords:string[]=[]
+  passedWords: string[]= []
   currentWordIndex = 0;
   score = 0;
   timeLeft = this.gamestate.timeLeft;
   totaltime = this.gamestate.timeLeft;
-  timer: any;
 
+  timer: any;
   touchStartX = 0;
   touchEndX = 0;
   cardTransform = '';
@@ -82,7 +83,7 @@ export class PlayComponent implements OnInit, OnDestroy {
   handleCorrect() {
     if (this.isAnimating) return;
     this.score++;
-    this.guessedWords.push(this.remainingWords[this.currentWordIndex])
+    this.gamestate.currentWords.push({text: this.remainingWords[this.currentWordIndex], isCorrect: true});
     this.nextWord('right');
   }
 
@@ -90,6 +91,7 @@ export class PlayComponent implements OnInit, OnDestroy {
     if (this.timeLeft==0) this.endRound();
     if (this.gamestate.currentPhase === 1 && this.gamestate.difficulty === "hard") return;
     if (this.isAnimating) return;
+    this.gamestate.currentWords.push({text: this.remainingWords[this.currentWordIndex], isCorrect: false});
     this.nextWord('left');
   }
 
@@ -118,10 +120,6 @@ export class PlayComponent implements OnInit, OnDestroy {
   endRound() {
     clearInterval(this.timer);
     this.gamestate.currentScore = this.score;
-    this.gamestate.remainingWords = this.remainingWords.filter(word => !this.guessedWords.includes(word));
-    if (this.gamestate.remainingWords.length == 0)
-      this.gamestate.nextPhase();
-
     this.router.navigate(['summary']);
   }
 }

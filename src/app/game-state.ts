@@ -2,9 +2,10 @@ import {inject, Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {firstValueFrom} from 'rxjs';
-interface Player {
-  name: string;
-  teamId: number;
+
+interface WordItem {
+  text: string;
+  isCorrect: boolean;
 }
 
 interface Team {
@@ -13,11 +14,7 @@ interface Team {
   teamScore: number;
   currentPlayerIndex:number;
 }
-interface Phase{
-  phaseId: number,
-  phaseTitle: string,
-  phaseDesc: string
-}
+
 interface WordsData {
   [themeName: string]: string[];
 }
@@ -34,6 +31,7 @@ export class GameState {
   currentTeamIndex = 0;
   currentPhase = 1;
   currentScore = 0;
+  currentWords: WordItem[] = [];
   difficulty:string = "easy";
   private isFinished: boolean = false;
 
@@ -74,6 +72,7 @@ export class GameState {
     }else {
       this.teams[this.currentTeamIndex].currentPlayerIndex++;
     }
+    this.currentWords = [];
 
     this.teams[this.currentTeamIndex].teamScore += this.currentScore;
     this.currentScore = 0;
@@ -121,8 +120,14 @@ export class GameState {
   }
   isGameFinished(){
     return this.isFinished && this.remainingWords.length == 0;
-
   }
+  endRoundErands(words:string[], score:number){
+    this.remainingWords = this.remainingWords.filter(word => !words.includes(word));
+    this.currentScore = score;
+    if (this.remainingWords.length == 0)
+      this.nextPhase();
+  }
+
   resetGame(){
     this.remainingWords = this.words;
     this.timeLeft = 40;

@@ -1,0 +1,45 @@
+<div class="min-h-screen bg-gray-100 p-6 font-sans text-gray-800 flex flex-col items-center justify-center">
+
+  <div class="w-full max-w-md bg-white rounded-3xl shadow-xl p-8 flex flex-col items-center">
+
+    <div class="mb-8 w-full text-center">
+      <h1 class="text-3xl font-extrabold text-gray-900 mb-2">Szavak javítása</h1>
+      <p class="text-gray-500 text-sm leading-relaxed">
+        Nézd át az aktuális kör szavait! Kattints a gombra a státusz megváltoztatásához.
+      </p>
+    </div>
+
+    <!-- Szavak listája -->
+    <div class="w-full space-y-3 mb-10">
+      <div *ngFor="let word of words; let i = index"
+           class="flex items-center justify-between p-4 rounded-xl border-2 transition-all duration-200"
+           [ngClass]="word.isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'">
+
+        <!-- Szó szövege -->
+        <span class="font-bold text-lg truncate pr-4"
+              [ngClass]="word.isCorrect ? 'text-green-800' : 'text-red-800'">
+          {{ word.text }}
+        </span>
+
+        <!-- Váltó gomb -->
+        <button (click)="toggleWordState(i)"
+                class="min-w-[100px] px-4 py-2 rounded-lg font-bold text-sm transition-transform active:scale-95"
+                [ngClass]="word.isCorrect ? 'bg-green-500 text-white hover:bg-green-400' : 'bg-red-500 text-white hover:bg-red-400'">
+          <span class="flex items-center justify-center gap-1">
+            <span *ngIf="word.isCorrect">✔ Helyes</span>
+            <span *ngIf="!word.isCorrect">✖ Hibás</span>
+          </span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mentés gomb -->
+    <button (click)="saveAndGoBack()"
+            class="w-full bg-indigo-600 text-white font-black text-xl py-5 rounded-2xl shadow-[0_8px_0_rgb(67,56,202)] hover:bg-indigo-500 active:shadow-[0_0px_0_rgb(67,56,202)] active:translate-y-2 transition-all">
+      KÉSZ, MENTÉS
+    </button>
+
+  </div>
+
+</div>
