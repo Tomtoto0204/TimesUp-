@@ -82,7 +82,7 @@ export class GameState {
     }else{
       this.currentTeamIndex++;
     }
-    this.remainingWords = [...this.words].sort(() => 0.5 - Math.random());
+    this.remainingWords = [...this.remainingWords].sort(() => 0.5 - Math.random());
     this.saveState()
 
   }

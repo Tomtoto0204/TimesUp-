@@ -20,6 +20,7 @@ export class PlayComponent implements OnInit, OnDestroy {
   currentWordIndex = 0;
   score = 0;
   timeLeft = this.gamestate.timeLeft;
+  totaltime = this.gamestate.timeLeft;
   timer: any;
 
   touchStartX = 0;
@@ -45,7 +46,8 @@ export class PlayComponent implements OnInit, OnDestroy {
       this.cdr.detectChanges();
       if (this.timeLeft <= 0) {
         clearInterval(this.timer);
-        this.endRound();
+        const audio = new Audio('/audio/alarmring.mp3');
+        audio.play();
       }
     }, 1000);
   }
@@ -85,12 +87,15 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   handlePass() {
+    if (this.timeLeft==0) this.endRound();
     if (this.gamestate.currentPhase === 1 && this.gamestate.difficulty === "hard") return;
     if (this.isAnimating) return;
     this.nextWord('left');
   }
 
   nextWord(direction: 'left' | 'right') {
+    if(this.timeLeft == 0)
+      this.endRound();
     this.isAnimating = true;
 
     this.cardTransform = direction === 'right'
